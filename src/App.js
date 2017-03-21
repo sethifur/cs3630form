@@ -6,9 +6,9 @@ import Form from './Form';
 class App extends Component {
 
   handleFormSubmit(data){
-    console.log("{this.data}");
+    console.log(data);
     var para = document.createElement("p");
-    var node = document.createTextNode("Name: ");
+    var node = document.createTextNode(`Name: ${data.fName} ${data.lName} \n Phone: ${data.phone} \n Email: ${data.email}`);
     para.appendChild(node);
 
     var element = document.getElementById('contacts');
@@ -24,6 +24,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <Form x={this.handleFormSubmit}/>
+        {this.props.children}
         <div id="contacts"></div>
       </div>
 
